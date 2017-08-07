@@ -2,8 +2,13 @@ a {
     text-decoration: none;
 
 	&:hover{
-		
+
 	}
 
 }
 
+
+.text__link{
+  color:$color-blue;
+  font-weight: 500;
+}

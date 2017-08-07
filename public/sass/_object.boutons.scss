@@ -1,0 +1,24 @@
+.bouton{
+  background: darken($color-blue,12%);
+  padding:10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: white;
+}
+
+
+
+.vote__bouton{
+  text-indent: -9999px;
+  background: none;
+  width:21px;
+  @include background_size("../img/upvote.svg",no-repeat,0px, 0px, contain);
+}
+
+.bouton--downvote{
+  background-image:url("../img/downvote.svg");
+}
+
+.bouton--submit{
+  margin-top:40px;
+}

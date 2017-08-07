@@ -4,22 +4,26 @@
   @include("partials.filters")
 
   <section class="wrapper">
-    <h2 class="content__title">Les meilleurs Mixs</h2>
+    <h2 class="content__title">Les Mixs les plus populaires</h2>
 
     <ul class="mix__list">
       @foreach($recettes as $recette)
-        <li class="mix__item">
+        <li class="mix__item clearfix">
           <div class="mix__points">
             @include('forms/vote/upvote')
-            <p>{{$recette->votes}}</p>
+            <p class="points__total">{{$recette->votes}}</p>
             @include('forms/vote/downvote')
           </div>
           <div class="mix__infos">
-            <h3 class="mix__title">
-              <p>{{$recette->plat1}} + {{$recette->plat2}}</p>
-            </h3>
+            <div class="infos__container">
+              <div class="container__align">
+                <h3 class="mix__title">
+                  {{$recette->plat1}} + {{$recette->plat2}}
+                </h3>
 
-            <p class="mix__author">Proposé par {{$recette->pseudo}} il y a {{$recette->date}}</p>
+                <p class="mix__author">Proposé par {{$recette->pseudo}} {{$recette->date}}</p>
+              </div>
+            </div>
           </div>
         </li>
       @endforeach

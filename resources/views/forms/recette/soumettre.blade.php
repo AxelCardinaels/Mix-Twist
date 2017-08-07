@@ -1,4 +1,4 @@
-<form  role="form" method="POST" action="{{ route('doMix') }}" class="content__form">
+<form  role="form" method="POST" action="{{ route('doMix') }}" class="content__form wrapper--form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
   <div class="form__part">
@@ -21,6 +21,6 @@
     <input class="input__text form__input" type="text" name="email" id="email" placeholder="Votre adresse email">
   </div>
 
-  <input type="submit bouton bouton--submit" value="Valider le mix!"/>
+  <input type="submit" class="bouton bouton--submit" value="Valider le mix!"/>
 
 </form>

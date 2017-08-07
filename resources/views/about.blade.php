@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 
-  <section class="wrapper">
+  <section class="wrapper--texts">
     <h2 class="content__title">A propos de ce site</h2>
     <div class="about__text">
       <p class="about__paragraph">Du texte bla bla bla</p>
@@ -17,7 +17,7 @@
     </div>
 
 
-  </section>d
+  </section>
 
 
 

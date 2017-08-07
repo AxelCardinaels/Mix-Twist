@@ -5,15 +5,15 @@
     <title>Mix & Twist</title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
     <link href="{{ asset('/css/screen.css') }}" rel="stylesheet">
 
   	<!-- Modernizer -->
   </head>
 
   <body>
-    <header>
-      <div class="wrapper--large">
+    <header class="header">
+      <div class="wrapper--large clearfix">
         <h1 class="title--logo">
           <span class="hide">Mix & Twist!</span>
           <a href="/" title="Retour à la page d'accueil" class="logo__link">
