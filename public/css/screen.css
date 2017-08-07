@@ -617,6 +617,28 @@ a {
 .form__submit {
   margin-top: 30px; }
 
+.alert__container {
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-bottom: 2em; }
+
+.alert--error {
+  background: rgba(255, 0, 0, 0.15);
+  color: #fd0000;
+  border: 1px solid #fe0000; }
+
+.alert--success {
+  background: rgba(0, 128, 0, 0.2);
+  color: #007f00;
+  border: 1px solid green; }
+
+.alert__message {
+  font-weight: 500;
+  margin-bottom: 1em; }
+
+.alert__item {
+  font-size: 16px; }
+
 .about__text {
   font-size: 16px;
   color: #838383; }
@@ -679,8 +701,9 @@ footer {
   font-weight: 500; }
 
 .mix__item {
-  padding: 15px 0px 20px;
-  border-bottom: 1px solid #E3E3E3; }
+  padding: 15px 0px 20px; }
+  .mix__item + .mix__item {
+    border-top: 1px solid #E3E3E3; }
 
 .mix__author {
   color: #838383;

@@ -14,6 +14,8 @@
 Route::get('/', ['uses' => 'PageController@home']);
 Route::get('/apropos', ['uses' => 'PageController@about']);
 Route::get('/mix/soumettre', ['uses' => 'RecetteController@soumettre']);
+Route::get('/mix/flop', ['as'=> 'flop', 'uses' => 'RecetteController@flop']);
+Route::get('/mix/recent', ['as'=> 'recent', 'uses' => 'RecetteController@recent']);
 Route::resource('mix', 'RecetteController');
 Route::post('/mix/doMix', ['as' => 'doMix', 'uses' => 'RecetteController@doMix']);
 Route::post('/mix/upvote/{id}', 'UpvoteController@upvote');

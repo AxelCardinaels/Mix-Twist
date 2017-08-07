@@ -3,15 +3,12 @@
 
   @include("partials.filters")
 
-  
-
   <section class="wrapper">
-    <h2 class="content__title">Les Mixs les plus populaires</h2>
+    <h2 class="content__title">Les Mixs les plus nazes</h2>
 
     <ul class="mix__list">
       @foreach($recettes as $recette)
-
-        @if($recette->votes > 0)
+        @if($recette->votes < 0)
           <li class="mix__item clearfix">
             <div class="mix__points">
               @include('forms/vote/upvote')
