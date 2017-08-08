@@ -1,23 +1,15 @@
 @extends('app')
 @section('content')
 
-  @include("partials.filters")
 
 
 
   <section class="wrapper">
-    <h2 class="content__title">Les Mixs les plus populaires</h2>
-
-    @if (session('status'))
-      <div class="alert__container alert--success">
-          {{ session('status') }}
-      </div>
-    @endif
+    <h2 class="content__title">Les Mixs de {{$user->name}}</h2>
 
     <ul class="mix__list">
-      @foreach($recettes as $recette)
+      @foreach($user->recettes as $recette)
 
-        @if($recette->votes > 0)
           <li class="mix__item clearfix">
             <div class="mix__points">
               @include('forms/vote/upvote')
@@ -31,14 +23,14 @@
                     {{$recette->plat1}} + {{$recette->plat2}}
                   </h3>
 
-                  <p class="mix__author">Proposé par <a href="{{url('/user/'.$recette->user->id)}}" title="Afficher le profil de {{$recette->user->name}}" class="author__link">{{$recette->user->name}}</a> {{$recette->date}}</p>
+                  <p class="mix__author">Proposé par {{$recette->user->name}} {{$recette->date}}</p>
                 </div>
               </div>
             </div>
           </li>
-        @endif
       @endforeach
     </ul>
+
   </section>
 
 

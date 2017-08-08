@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Upvote;
+use Illuminate\Support\Facades\Auth;
 
 class UpvoteController extends Controller
 {
@@ -11,9 +12,10 @@ class UpvoteController extends Controller
 
       $upvote = new Upvote;
       $upvote->recette_id = $id;
+      $upvote->user_id = Auth::user()->id;
 
       $upvote->save();
 
-      return redirect('/')->with('status', 'Données enregistrées, merci !');
+      return redirect('/');
     }
 }

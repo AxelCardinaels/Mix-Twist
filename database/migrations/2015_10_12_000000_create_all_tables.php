@@ -18,12 +18,14 @@ class CreateAllTables extends Migration
         Schema::create('upvotes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('recette_id');
+            $table->integer('user_id');
             $table->timestamps();
           });
 
         Schema::create('downvotes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('recette_id');
+            $table->integer('user_id');
             $table->timestamps();
           });
 
@@ -31,8 +33,7 @@ class CreateAllTables extends Migration
             $table->increments('id');
             $table->string('plat1');
             $table->string('plat2');
-            $table->string('pseudo');
-            $table->string('email',255)->unique();
+            $table->integer('user_id');
             $table->timestamps();
         });
 

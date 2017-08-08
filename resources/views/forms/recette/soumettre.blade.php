@@ -23,15 +23,6 @@
     <input class="input__text form__input" type="text" name="plat2" id="plat2" placeholder="Le second ingrédient" value="{{ old('plat2') }}">
   </div>
 
-  <div class="form__part">
-    <label for="pseudo" class="form__label">Votre pseudo</label>
-    <input class="input__text form__input" type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" value="{{ old('pseudo') }}">
-  </div>
-
-  <div class="form__part">
-    <label for="email" class="form__label">Votre adresse email</label>
-    <input class="input__text form__input" type="email" name="email" id="email" placeholder="Votre adresse email" value={{ old('email') }}>
-  </div>
 
   <input type="submit" class="bouton bouton--submit" value="Valider le mix!"/>
 

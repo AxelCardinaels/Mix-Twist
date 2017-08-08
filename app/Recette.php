@@ -13,4 +13,8 @@ class Recette extends Model
   public function downvotes(){
     return $this->hasMany('App\Downvote');
   }
+
+  public function user(){
+    return $this->belongsTo('App\User');
+  }
 }

@@ -7,7 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public $table = "users";
     use Notifiable;
+
+
 
     /**
      * The attributes that are mass assignable.
@@ -26,4 +30,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function downvotes(){
+      return $this->hasMany('App\Downvote');
+    }
+
+    public function upvotes(){
+      return $this->hasMany('App\Upvote');
+    }
+
+    public function recettes(){
+      return $this->hasMany('App\Recette');
+    }
+
+
 }

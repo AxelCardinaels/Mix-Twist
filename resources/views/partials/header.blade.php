@@ -31,9 +31,17 @@
               <a href="/apropos" title="Afficher la page d'informations de Mix et Twist" class="menu__link">A propos</a>
             </li>
 
-            <li class="menu__item">
-              <a href="/mix/soumettre" title="Afficher la page de publication d'un Mix" class="menu__link bouton">Poster un mix</a>
-            </li>
+            @if (Auth::check())
+              <li class="menu__item">
+                <a href="/mix/soumettre" title="Afficher la page de publication d'un Mix" class="menu__link bouton">Poster un mix</a>
+              </li>
+            @else
+              <li class="menu__item">
+                <a href="{{route('login')}}" title="Se connecter" class="menu__link bouton">Connexion</a>
+              </li>
+
+          @endif
+
           </ul>
         </nav>
       </div>
