@@ -669,7 +669,8 @@ a {
     top: 6px; }
 
   .bouton {
-    width: 100%; }
+    width: 100%;
+    font-size: 0.888888888888889em; }
     .bouton + .bouton {
       margin-top: 0.75em; }
 
@@ -755,6 +756,9 @@ a {
   margin-bottom: 4em;
   margin-top: -2em; }
 
+@media (max-width: 950px) {
+  .user__logout {
+    margin-top: -1em; } }
 @media (max-width: 550px) {
   .about__text {
     font-size: 0.85em;
