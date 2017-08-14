@@ -90,15 +90,26 @@ class UserController extends Controller
 
   function show($id){
 
-    $user = User::find($id);
+    if(User::where('id', $id)->exists()){
+      $user = User::find($id);
+      Date::setLocale('fr');
+      foreach($user->recettes as $recette){
 
-    Date::setLocale('fr');
-    foreach($user->recettes as $recette){
+        $date = new Date($recette->created_at);
+        $recette->date = $date->ago();
+        $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
+      }
 
-      $date = new Date($recette->created_at);
-      $recette->date = $date->ago();
-      $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+      return view('user.show',['user' => $user]);
+    }else{
+      return view('error.404');
     }
-    return view('user.show',['user' => $user]);
+
+
+
   }
 }

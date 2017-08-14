@@ -14,8 +14,8 @@
             @endif
 
       <div class="form__part">
-          <label for="email" class="col-md-4 control-label">Votre adresse email</label>
-          <input id="email" type="email" class="form__input input__text" name="email" placeholder="Votre adresse email" value="{{ old('email') }}" required>
+          <label for="email" class="form__label">Votre adresse email</label>
+          <input id="email" type="email" class="form__input input__text" name="email" placeholder="Votre adresse email" value="{{ old('email') }}" required/>
       </div>
 
       <div class="form__part">
@@ -24,12 +24,13 @@
       </div>
 
       <div class="form__part">
-        <label>
-          <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}/> Se souvenir de moi
+        <label class="form__label">
+          <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="form__checkbox"/> Se souvenir de moi
         </label>
       </div>
 
       <input type="submit" class="bouton bouton--submit" value="Se connecter"/>
+      <a href="{{url("/register")}}" class="bouton bouton--account" title="Créer un compte">Créer un compte</a>
     </form>
 
 </div>

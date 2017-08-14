@@ -72,6 +72,11 @@ class RecetteController extends Controller
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
       }
 
       $recettes = $recettes->sortBy(function($recette){
@@ -89,6 +94,10 @@ class RecetteController extends Controller
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
       }
 
       return view('recette.recent',['recettes' => $recettes]);

@@ -5,6 +5,7 @@
     <title>Mix & Twist</title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
     <link href="{{ asset('/css/screen.css') }}" rel="stylesheet">
 
@@ -21,23 +22,52 @@
           </a>
         </h1>
 
-        <nav class="header__menu">
+        <div class="burger__container">
+    			<a href="#" class="burger__open burger__icon" title="Ouvrir le menu">
+    				<img class="burger__img menu--open" src="{{ URL::to('/') }}/img/burgeropen.svg" alt="Icone ouverture du menu"/>
+    			</a>
+
+    			<a href="#" class="burger__close burger__icon burger--hidden" title="Fermer le menu">
+    				<img class="burger__img menu--close" src="{{ URL::to('/') }}/img/burgerclose.svg" alt="Icone fermeture du menu"/>
+    			</a>
+		    </div>
+        <nav class="header__menu menu--hidden">
           <h2 class="hide">Menu de navigation</h2>
           <ul class="menu__list list-inline">
             <li class="menu__item">
-              <a href="/" title="Retourner à la page d'accueil" class="menu__link">Accueil</a>
+              <a href="/" title="Retourner à la page d'accueil"
+              @if(Route::currentRouteName() == "home")
+                class="menu__link link--active">Accueil</a>
+              @else
+              class="menu__link">Accueil</a>
+              @endif
             </li>
             <li class="menu__item">
-              <a href="/apropos" title="Afficher la page d'informations de Mix et Twist" class="menu__link">A propos</a>
+              <a href="/apropos" title="Afficher la page d'informations de Mix et Twist"
+              @if(Route::currentRouteName() == "about")
+                class="menu__link link--active">A propos</a>
+              @else
+              class="menu__link">A propos</a>
+              @endif
             </li>
 
             @if (Auth::check())
+
               <li class="menu__item">
+                <a href="{{url('/user/'.Auth::user()->id)}}" title="Afficher mon profil"
+                  @if(Route::currentRouteName() == "userhome")
+                    class="menu__link link--active">{{Auth::user()->name}}</a>
+                  @else
+                    class="menu__link">{{Auth::user()->name}}</a>
+                  @endif
+              </li>
+
+              <li class="menu__item item--bouton">
                 <a href="/mix/soumettre" title="Afficher la page de publication d'un Mix" class="menu__link bouton">Poster un mix</a>
               </li>
             @else
-              <li class="menu__item">
-                <a href="{{route('login')}}" title="Se connecter" class="menu__link bouton">Connexion</a>
+              <li class="menu__item item--bouton">
+                <a href="{{route('login')}}" title="Se connecter" class="menu__link bouton">Connexion / Rejoindre</a>
               </li>
 
           @endif

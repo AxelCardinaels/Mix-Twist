@@ -15,10 +15,15 @@ class PageController extends Controller
       $recettes = Recette::orderBy('id')->get();
       Date::setLocale('fr');
       foreach($recettes as $recette){
-
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
+
       }
 
       $recettes = $recettes->sortByDesc(function($recette){

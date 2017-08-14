@@ -40,7 +40,7 @@ class User extends Authenticatable
     }
 
     public function recettes(){
-      return $this->hasMany('App\Recette');
+      return $this->hasMany('App\Recette')->orderByDesc('id');
     }
 
 

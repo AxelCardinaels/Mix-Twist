@@ -1,7 +1,7 @@
 .header{
   background:$color-blue;
   color:white;
-  padding:20px 0px 25px;
+  padding:1.111111111111111em 0px 1.388888888888889em; /*20/18 25/18*/
   box-shadow: 0px 2px 2px rgba(1,1,1,0.3);
 
 }
@@ -21,30 +21,27 @@
 
 .menu__link{
   color:white;
-  font-size:16px;
+  font-size:0.888888888888889em; /*16/18*/
 }
 
 .menu__item{
   &+&{
-    margin-left:50px;
+    margin-left:3.125em; /*50/16*/
   }
 }
 
 .filter__menu{
   text-align: center;
-  padding: 20px 0px;
+  padding: 1.111111111111111em 0px; /*20/18*/
   border-bottom:1px solid $color-grey-border;
 }
 
 .filter__item{
-  font-size: 17px;
+  font-size: 0.944444444444444em; /*17/18*/
   color:$color-grey-text;
   &+&{
-    margin-left:30px;
+    margin-left:1.764705882352941em; /*30/17*/
   }
-
-
-
 }
 
 .filter__link:visited{
@@ -53,4 +50,89 @@
 .filter__link.filter--current{
   color:$color-blue;
   font-weight: 500;
+}
+
+
+.link--active{
+  font-weight: 500;
+}
+
+.burger__container{
+  float:right;
+  text-align: right;
+  display: none;
+}
+
+
+.burger__icon{
+  width:27px;
+  display: inline-block;
+  position: relative;
+  top:10px;
+
+  img{
+    width: 100%;
+  }
+
+}
+
+.burger--hidden{
+  display: none;
+}
+
+
+@media (max-width: 800px){
+  .menu__item{
+    &+&{
+      margin-left:1.5em;
+    }
+  }
+}
+
+@media (max-width: 730px){
+  .burger__container{
+    display: block;
+  }
+
+  .menu--hidden{
+    display: none;
+  }
+
+  .header__menu{
+    float:none;
+    position: static;
+    width: 100%;
+  }
+
+  .title--logo{
+    float:none;
+    display: inline-block;
+  }
+
+  .menu__list{
+    padding-top:2em;
+    .menu__item{
+      display: block;
+      text-align: center;
+    }
+
+    .menu__item + .menu__item{
+      margin:0.75em 0px;
+    }
+
+    .menu__item + .item--bouton{
+      margin-top:2em;
+    }
+  }
+
+
+}
+
+@media (max-width: 550px){
+  .filter__item{
+    font-size: 0.9em;
+    &+&{
+      margin-left:1.3em;
+    }
+  }
 }

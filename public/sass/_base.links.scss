@@ -1,9 +1,9 @@
 a {
     text-decoration: none;
+    @include transition_css(all,0.25s,ease,0s);
 
-	&:hover{
 
-	}
+
 
 }
 
@@ -11,4 +11,10 @@ a {
 .text__link{
   color:$color-blue;
   font-weight: 500;
+
+  &:hover{
+    color:darken($color-blue,15%);
+  }
+
+
 }

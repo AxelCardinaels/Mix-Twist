@@ -1,6 +1,6 @@
 .bouton{
   background: darken($color-blue,12%);
-  padding:10px 20px;
+  padding:0.555555555555556em 1.111111111111111em; /*10/18 20/18*/
   border-radius: 5px;
   font-weight: 500;
   color: white;
@@ -11,8 +11,21 @@
 .vote__bouton{
   text-indent: -9999px;
   background: none;
+  height:21px;
   width:21px;
   @include background_size("../img/upvote.svg",no-repeat,0px, 0px, contain);
+}
+
+.upvote--done{
+  .vote__bouton{
+    background-image:url("../img/upvotedone.svg");
+  }
+}
+
+.downvote--done{
+  .vote__bouton{
+    background-image:url("../img/downvotedone.svg");
+  }
 }
 
 .bouton--downvote{
@@ -21,4 +34,39 @@
 
 .bouton--submit{
   margin-top:40px;
+}
+
+.bouton--account{
+  background: #40b771;
+}
+
+
+@media (max-width: 950px){
+  .vote__bouton{
+    height:18px;
+    width:18px;
+  }
+}
+
+@media (max-width: 550px){
+  .vote__bouton{
+    height:14px;
+    width:14px;
+    display: inline-block;
+    position: relative;
+    top:6px;
+  }
+
+  .bouton{
+    width: 100%;
+
+    &+&{
+      margin-top:0.75em;
+    }
+  }
+  .bouton--account{
+    display: block;
+    padding:1.111111111111111em; /*20/18*/
+    text-align: center;
+  }
 }
