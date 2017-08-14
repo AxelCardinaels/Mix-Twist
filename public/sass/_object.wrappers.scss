@@ -17,3 +17,28 @@
   width: 700px;
   margin:0px auto;
 }
+
+.wrapper--error{
+  text-align: center;
+}
+
+
+@media (max-width: 1050px){
+  .wrapper{
+    width:90%
+  }
+}
+
+@media (max-width: 750px){
+  .wrapper--texts{
+    width:90%
+  }
+}
+
+
+@media (max-width: 550px){
+  .wrapper--form{
+    width:90%;
+    margin-top:2em;
+  }
+}

@@ -1,25 +1,24 @@
 @extends('app')
 @section('content')
 
-  @include("partials.filters")
 
 
 
   <section class="wrapper">
-    <h2 class="content__title">Les Mixs les plus populaires</h2>
+    <h2 class="content__title">Les Mixs de {{$user->name}}</h2>
 
-    @if (session('status'))
-      <div class="alert__container alert--success">
-          {{ session('status') }}
+    @if(Auth::user()->id == $user->id)
+      <div class="user__logout">
+        <a href="{{route("doLogout")}}" title="Se déconnecter" class="bouton bouton--disconnect">Se déconnecter</a>
       </div>
     @endif
 
     <ul class="mix__list">
-      @if($recettes->count() == 0)
-        <p class="mix__nope">Désolé, il n'y a pas encore de Mixs ! Pourquoi ne pas en <a class="text__link" href="{{url("/mix/soumettre")}}" title="Poster un mix">proposer un ?</a></p>
+      @if($user->recettes->count() == 0)
+        <p class="mix__nope">Désolé, cet utilisateur n'a pas encore posté de Mixs !</p>
       @else
-        @foreach($recettes as $recette)
-          @if($recette->votes >= 0)
+        @foreach($user->recettes as $recette)
+
             <li class="mix__item clearfix" id="recette{{$recette->id}}">
               <div class="mix__points">
                 @include('forms/vote/upvote')
@@ -38,10 +37,10 @@
                 </div>
               </div>
             </li>
-          @endif
         @endforeach
       @endif
     </ul>
+
   </section>
 
 

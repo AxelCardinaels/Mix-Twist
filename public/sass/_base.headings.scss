@@ -5,9 +5,9 @@ h1,h2,h3,h4,h5{
 
 .content__title{
   color:$color-blue;
-  font-size: 25px;
+  font-size: 1.3888888889em; /*25/18*/
   text-align: center;
-  margin:40px 0px 60px;
+  margin:1.6em 0px 2.4em; /*40/25 60/25*/
   letter-spacing: 2px;
 }
 
@@ -16,4 +16,28 @@ h1,h2,h3,h4,h5{
   color:$color-blue;
   line-height: 1.1;
   width:100%;
+}
+
+
+@media (max-width: 950px){
+  .content__title{
+    font-size: 1.2em; /*25/18*/
+    margin:1.3em 0px 2em; /*40/25 60/25*/
+  }
+
+  .mix__title{
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 550px){
+  .content__title{
+    font-size: 1.05em; /*25/18*/
+    margin:1.1em 0px 2em; /*40/25 60/25*/
+  }
+
+  .mix__title{
+    font-size: 0.9em;
+    margin-bottom:0.25em;
+  }
 }

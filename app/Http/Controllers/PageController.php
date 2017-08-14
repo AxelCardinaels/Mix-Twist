@@ -7,6 +7,7 @@ use App\Recette;
 use App\Downvote;
 use App\Upvote;
 use Jenssegers\Date\Date;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -14,10 +15,15 @@ class PageController extends Controller
       $recettes = Recette::orderBy('id')->get();
       Date::setLocale('fr');
       foreach($recettes as $recette){
-
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
+
       }
 
       $recettes = $recettes->sortByDesc(function($recette){
@@ -32,5 +38,14 @@ class PageController extends Controller
       $recettes = Recette::orderBy('id')->get();
 
       return view('about',['recettes' => $recettes]);
+    }
+
+    function register(){
+
+      return view('register');
+    }
+
+    function login(){
+      return view('login');
     }
 }

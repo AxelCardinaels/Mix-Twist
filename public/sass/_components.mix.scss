@@ -1,5 +1,5 @@
 .mix__item{
-  padding:15px 0px 20px;
+  padding:0.833333333333333em 0px 1.111111111111111em; /*15/18 20/18*/
 
   &+&{
     border-top: 1px solid $color-grey-border;
@@ -9,18 +9,16 @@
 
 .mix__author{
   color:$color-grey-text;
-  font-size: 16px;
+  font-size: 0.888888888888889em; /*16/18*/
 }
 
 .mix__points, .mix__infos{
   float: left;
-
 }
 
 .mix__infos{
   max-width: 86%;
   position: relative;
-  word-break: break-all;
   top:15px;
 }
 .mix__points{
@@ -35,10 +33,60 @@
   font-weight: 500;
   color:$color-grey-text;
   position: relative;
-  left:-1px;
-  top:-1px;
+  top:-2px;
 }
 
 .vote__form{
   display: inline-block;
+}
+
+
+@media (max-width: 950px){
+
+  .mix__author{
+    color:$color-grey-text;
+    font-size: 0.85em; /*16/18*/
+  }
+}
+
+@media (max-width: 550px){
+  .mix__author{
+    color:darken($color-grey-text,15%);
+    font-size: 0.75em; /*16/18*/
+  }
+
+  .mix__item{
+    display: table;
+    width: 100%;
+  }
+
+  .mix__points{
+    text-align: justify;
+    width:100%;
+    margin-right: 0px;
+    display: table-footer-group;
+    position: relative;
+  }
+
+  .mix__infos{
+    width: 100%;
+    max-width: none;
+    position: static;
+    display:table-header-group;
+
+
+
+  }
+
+
+  .mix__points, .mix__infos{
+    float: none;
+    width: 100%;
+  }
+
+  .points__total{
+    display: inline-block;
+    position: static;
+    margin: 1em 0.7em 0px;
+  }
 }

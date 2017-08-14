@@ -8,11 +8,22 @@ use App\Downvote;
 use App\Upvote;
 use Jenssegers\Date\Date;
 use Validator, Input, Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class RecetteController extends Controller
 {
     function soumettre(){
-      return view('recette.soumettre');
+
+      if (Auth::check()){
+        return view('recette.soumettre');
+      }else{
+
+        $errors = ["Vous devez être connecté pour poster un mix."];
+        return redirect('login')->withErrors($errors)->withInput();
+      }
+
+
+
     }
 
     public function doMix(Request $request){
@@ -20,13 +31,10 @@ class RecetteController extends Controller
       $rules = [
         'plat1' => 'required',
         'plat2' => 'required',
-        'pseudo' => 'required',
-        'email' => 'required|email',
       ];
 
       $messages = [
         'required' => 'Le champ " :attribute" ne peut pas être vide.',
-        'email' => 'L’adresse email doit être au format exemple@test.com.',
       ];
 
 
@@ -42,8 +50,7 @@ class RecetteController extends Controller
         $recette = new Recette;
         $recette->plat1 = $request->plat1;
         $recette->plat2 = $request->plat2;
-        $recette->pseudo = $request->pseudo;
-        $recette->email = $request->email;
+        $recette->user_id = Auth::user()->id;
 
         $recette->save();
 
@@ -65,6 +72,11 @@ class RecetteController extends Controller
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
       }
 
       $recettes = $recettes->sortBy(function($recette){
@@ -82,6 +94,10 @@ class RecetteController extends Controller
         $date = new Date($recette->created_at);
         $recette->date = $date->ago();
         $recette->votes = count($recette->upvotes) - count($recette->downvotes);
+        if(Auth::check()){
+          $recette["downvoted"] = Controller::CheckUserDownvotes($recette);
+          $recette["upvoted"] = Controller::CheckUserupvotes($recette);
+        }
       }
 
       return view('recette.recent',['recettes' => $recettes]);
