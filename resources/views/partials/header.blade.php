@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
     <link href="{{ asset('/css/screen.css') }}" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::to('/') }}/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ URL::to('/') }}/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::to('/') }}/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ URL::to('/') }}/img/favicon/manifest.json">
+    <link rel="mask-icon" href="{{ URL::to('/') }}/img/favicon/safari-pinned-tab.svg" color="#125dcc">
+    <meta name="theme-color" content="#ffffff">
+
   	<!-- Modernizer -->
   </head>
 
