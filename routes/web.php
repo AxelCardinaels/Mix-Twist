@@ -13,7 +13,7 @@
 
 Route::get('/', ['as' =>'home', 'uses' => 'PageController@home']);
 Route::get('/apropos', ['as' => 'about', 'uses' => 'PageController@about']);
-Route::get('/mix/soumettre', ['uses' => 'RecetteController@soumettre']);
+Route::get('/mix/soumettre', ['as' => 'soumettre', 'uses' => 'RecetteController@soumettre']);
 Route::get('/mix/flop', ['as'=> 'flop', 'uses' => 'RecetteController@flop']);
 Route::get('/mix/recent', ['as'=> 'recent', 'uses' => 'RecetteController@recent']);
 Route::resource('mix', 'RecetteController');

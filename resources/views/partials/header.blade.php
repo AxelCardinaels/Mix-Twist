@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,500" rel="stylesheet">
     <link href="{{ asset('/css/screen.css') }}" rel="stylesheet">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::to('/') }}/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ URL::to('/') }}/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL::to('/') }}/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ URL::to('/') }}/img/favicon/manifest.json">
-    <link rel="mask-icon" href="{{ URL::to('/') }}/img/favicon/safari-pinned-tab.svg" color="#125dcc">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/img/favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/img/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/img/favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ asset('/img/favicon/manifest.json')}}">
+    <link rel="mask-icon" href="{{ asset('/img/favicon/safari-pinned-tab.svg')}}" color="#125dcc">
     <meta name="theme-color" content="#ffffff">
 
   	<!-- Modernizer -->
@@ -24,25 +24,25 @@
       <div class="wrapper--large clearfix">
         <h1 class="title--logo">
           <span class="hide">Mix & Twist!</span>
-          <a href="/" title="Retour à la page d'accueil" class="logo__link">
-            <img alt="Logo de Mix et Twist" src="{{ URL::to('/') }}/img/logo.svg" class="logo__img">
+          <a href="{{route("home")}}" title="Retour à la page d'accueil" class="logo__link">
+            <img alt="Logo de Mix et Twist" src="{{asset('img/logo.svg')}}" class="logo__img">
           </a>
         </h1>
 
         <div class="burger__container">
     			<a href="#" class="burger__open burger__icon" title="Ouvrir le menu">
-    				<img class="burger__img menu--open" src="{{ URL::to('/') }}/img/burgeropen.svg" alt="Icone ouverture du menu"/>
+    				<img class="burger__img menu--open" src="{{asset('img/burgeropen.svg')}}" alt="Icone ouverture du menu"/>
     			</a>
 
     			<a href="#" class="burger__close burger__icon burger--hidden" title="Fermer le menu">
-    				<img class="burger__img menu--close" src="{{ URL::to('/') }}/img/burgerclose.svg" alt="Icone fermeture du menu"/>
+    				<img class="burger__img menu--close" src="{{asset('img/burgerclose.svg')}}" alt="Icone fermeture du menu"/>
     			</a>
 		    </div>
         <nav class="header__menu menu--hidden">
           <h2 class="hide">Menu de navigation</h2>
           <ul class="menu__list list-inline">
             <li class="menu__item">
-              <a href="/" title="Retourner à la page d'accueil"
+              <a href="{{route("home")}}" title="Retourner à la page d'accueil"
               @if(Route::currentRouteName() == "home")
                 class="menu__link link--active">Accueil</a>
               @else
@@ -50,7 +50,7 @@
               @endif
             </li>
             <li class="menu__item">
-              <a href="/apropos" title="Afficher la page d'informations de Mix et Twist"
+              <a href="{{route("about")}}" title="Afficher la page d'informations de Mix et Twist"
               @if(Route::currentRouteName() == "about")
                 class="menu__link link--active">A propos</a>
               @else
@@ -70,7 +70,7 @@
               </li>
 
               <li class="menu__item item--bouton">
-                <a href="/mix/soumettre" title="Afficher la page de publication d'un Mix" class="menu__link bouton">Poster un mix</a>
+                <a href="{{route('soumettre')}}" title="Afficher la page de publication d'un Mix" class="menu__link bouton">Poster un mix</a>
               </li>
             @else
               <li class="menu__item item--bouton">

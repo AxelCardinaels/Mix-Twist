@@ -2,7 +2,7 @@
   <h2 class="hide">Menu de tri des mixs</h2>
   <ul class="filter__list list-inline">
     <li class="filter__item">
-      <a href="/"
+      <a href="{{route('home')}}"
       @if(Route::currentRouteName() == "home")
         class="filter__link filter--current" title="Afficher les meilleurs Mixs">Top</a>
       @else

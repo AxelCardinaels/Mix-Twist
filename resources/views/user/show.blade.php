@@ -7,10 +7,13 @@
   <section class="wrapper">
     <h2 class="content__title">Les Mixs de {{$user->name}}</h2>
 
-    @if(Auth::user()->id == $user->id)
-      <div class="user__logout">
-        <a href="{{route("doLogout")}}" title="Se déconnecter" class="bouton bouton--disconnect">Se déconnecter</a>
-      </div>
+    @if(Auth::check())
+
+      @if(Auth::id() == $user->id)
+        <div class="user__logout">
+          <a href="{{route("doLogout")}}" title="Se déconnecter" class="bouton bouton--disconnect">Se déconnecter</a>
+        </div>
+      @endif
     @endif
 
     <ul class="mix__list">
